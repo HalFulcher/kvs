@@ -86,7 +86,6 @@ func GetAllEntries() map[string]Entry {
 //Add
 
 func AddEntry(key string, value string, username string) {
-	fmt.Println("Reached add entry handler")
 
 	f := func() {
 
@@ -96,10 +95,13 @@ func AddEntry(key string, value string, username string) {
 				NewEntry.Value = value
 				NewEntry.Username = username
 				DB[key] = NewEntry
+				break
 			} else {
+				fmt.Println("Add new entry")
 				NewEntry.Value = value
 				NewEntry.Username = username
 				DB[key] = NewEntry
+				break
 			}
 		}
 		// account for empty database
@@ -122,10 +124,11 @@ func DeleteEntry(key string, username string) {
 			if k == key && v.Username == username {
 				fmt.Println("Deleting entry")
 				delete(DB, key)
+				break
 			} else {
 				fmt.Printf("Permission denied")
 				fmt.Println("Permission denied")
-
+				break
 			}
 		}
 
