@@ -22,11 +22,6 @@ var NewEntry Entry
 
 var JobList = make(chan func())
 
-// Remove entry from DB helper func
-func RemoveIndex(s []Entry, index int) []Entry {
-	return append(s[:index], s[index+1:]...)
-}
-
 // Have getlistening func that pulls things off the channel. Channel is like a queue
 
 func StartListening() {

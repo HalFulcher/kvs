@@ -4,8 +4,6 @@ import (
 	"testing"
 )
 
-// these tests don't work with concurrency?
-
 func TestGetEntry(t *testing.T) {
 
 	AddEntry("James", "078383838", "username1")
